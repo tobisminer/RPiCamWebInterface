@@ -287,6 +287,7 @@
       <script src="js/style_minified.js"></script>
       <script src="js/script.js"></script>
       <script src="js/pipan.js"></script>
+	  <script>imageZoom("sourceImage", "resultImage");</script>
    </head>
    <body onload="setTimeout('init(<?php echo "$mjpegmode, $video_fps, $divider" ?>);', 100);">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" <?php getdisplayStyle('navbar', $userLevel); ?>>
@@ -303,6 +304,10 @@
           <div id="main-buttons">
             <input id="image_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?> onclick="test()">
          </div>
+		<div class="img-zoom-container">
+		    <img id="sourceImage" src="/media/image.jpg" width=80%>
+		    <div id="resultImage" class="img-zoom-result"></div>
+        </div>		
       </div>
       <div class="container-fluid text-center">
          <div class="panel-group" id="accordion" <?php getdisplayStyle('settings', $userLevel); ?> >
