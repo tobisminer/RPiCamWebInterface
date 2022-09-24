@@ -261,126 +261,46 @@ ajax_status.onreadystatechange = function() {
   if(ajax_status.readyState == 4 && ajax_status.status == 200) {
 
     if(ajax_status.responseText == "ready") {
-      setButtonState("video_button", false, "record video start", "ca 1");
       setButtonState("image_button", false, "record image", "im");
-      setButtonState("timelapse_button", false, "timelapse start", "tl 1");
-      setButtonState("md_button", false, "motion detection start", "md 1");
-      setButtonState("halt_button", false, "stop camera", "ru 0");
-      document.getElementById("preview_select").disabled = false;
-      document.getElementById("video_button").className = btn_class_p;
-      document.getElementById("timelapse_button").className = btn_class_p;
-      document.getElementById("md_button").className = btn_class_p;
       document.getElementById("image_button").className = btn_class_p;
       halted = 0;
     }
     else if(ajax_status.responseText == "md_ready") {
-      setButtonState("video_button", true, "record video start");
       setButtonState("image_button", false, "record image", "im");
-      setButtonState("timelapse_button", false, "timelapse start", "tl 1");
-      setButtonState("md_button", false, "motion detection stop", "md 0");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = false;
-      document.getElementById("video_button").className = btn_class_p;
-      document.getElementById("timelapse_button").className = btn_class_p;
-      document.getElementById("md_button").className = btn_class_a;
       document.getElementById("image_button").className = btn_class_p;
       halted = 0;
     }
     else if(ajax_status.responseText == "timelapse") {
-      setButtonState("video_button", false, "record video start", "ca 1");
       setButtonState("image_button", true, "record image");
-      setButtonState("timelapse_button", false, "timelapse stop", "tl 0");
-      setButtonState("md_button", true, "motion detection start");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = false;
-      document.getElementById("video_button").className = btn_class_p;
-      document.getElementById("timelapse_button").className = btn_class_a;
-      document.getElementById("md_button").className = btn_class_p;
       document.getElementById("image_button").className = btn_class_p;
     }
     else if(ajax_status.responseText == "tl_md_ready") {
-      setButtonState("video_button", true, "record video start");
       setButtonState("image_button", false, "record image", "im");
-      setButtonState("timelapse_button", false, "timelapse stop", "tl 0");
-      setButtonState("md_button", false, "motion detection stop", "md 0");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = false;
-      document.getElementById("video_button").className = btn_class_p;
-      document.getElementById("timelapse_button").className = btn_class_a;
-      document.getElementById("md_button").className = btn_class_a;
       document.getElementById("image_button").className = btn_class_p;
       halted = 0;
     }
     else if(ajax_status.responseText == "video") {
-      setButtonState("video_button", false, "record video stop", "ca 0");
       setButtonState("image_button", false, "record image", "im");
-      setButtonState("timelapse_button", false, "timelapse start", "tl 1");
-      setButtonState("md_button", true, "motion detection start");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = true;
-      document.getElementById("video_button").className = btn_class_a;
-      document.getElementById("timelapse_button").className = btn_class_p;
-      document.getElementById("md_button").className = btn_class_p;
       document.getElementById("image_button").className = btn_class_p;
     }
     else if(ajax_status.responseText == "md_video") {
-      setButtonState("video_button", true, "record video stop");
       setButtonState("image_button", false, "record image", "im");
-      setButtonState("timelapse_button", false, "timelapse start", "tl 1");
-      setButtonState("md_button", true, "recording video...");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = true;
-      document.getElementById("video_button").className = btn_class_a;
-      document.getElementById("timelapse_button").className = btn_class_p;
-      document.getElementById("md_button").className = btn_class_a;
       document.getElementById("image_button").className = btn_class_p;
     }
     else if(ajax_status.responseText == "tl_video") {
-      setButtonState("video_button", false, "record video stop", "ca 0");
       setButtonState("image_button", true, "record image");
-      setButtonState("timelapse_button", false, "timelapse stop", "tl 0");
-      setButtonState("md_button", true, "motion detection start");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = false;
-      document.getElementById("video_button").className = btn_class_a;
-      document.getElementById("timelapse_button").className = btn_class_a;
-      document.getElementById("md_button").className = btn_class_p;
       document.getElementById("image_button").className = btn_class_p;
     }
     else if(ajax_status.responseText == "tl_md_video") {
-      setButtonState("video_button", false, "record video stop", "ca 0");
       setButtonState("image_button", true, "record image");
-      setButtonState("timelapse_button", false, "timelapse stop", "tl 0");
-      setButtonState("md_button", true, "recording video...");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = false;
-      document.getElementById("video_button").className = btn_class_a;
-      document.getElementById("timelapse_button").className = btn_class_a;
-      document.getElementById("md_button").className = btn_class_a;
       document.getElementById("image_button").className = btn_class_p;
     }
     else if(ajax_status.responseText == "image") {
-      setButtonState("video_button", true, "record video start");
       setButtonState("image_button", true, "recording image");
-      setButtonState("timelapse_button", true, "timelapse start");
-      setButtonState("md_button", true, "motion detection start");
-      setButtonState("halt_button", true, "stop camera");
-      document.getElementById("preview_select").disabled = false;
       document.getElementById("image_button").className = btn_class_a;
     }
     else if(ajax_status.responseText == "halted") {
-      setButtonState("video_button", true, "record video start");
       setButtonState("image_button", true, "record image");
-      setButtonState("timelapse_button", true, "timelapse start");
-      setButtonState("md_button", true, "motion detection start");
-      setButtonState("halt_button", false, "start camera", "ru 1");
-      document.getElementById("preview_select").disabled = false;
-      document.getElementById("video_button").className = btn_class_p;
-      document.getElementById("timelapse_button").className = btn_class_p;
-      document.getElementById("md_button").className = btn_class_p;
-      document.getElementById("video_button").className = btn_class_p;
-      document.getElementById("timelapse_button").className = btn_class_p;
-      document.getElementById("md_button").className = btn_class_p;
       document.getElementById("image_button").className = btn_class_p;
       halted = 1;
     }
