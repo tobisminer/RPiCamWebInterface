@@ -207,7 +207,9 @@ function reload_img () {
   if(!halted) mjpeg_img.src = "cam_pic.php?time=" + new Date().getTime() + "&pDelay=" + preview_delay;
   else setTimeout("reload_img()", 500);
 }
-
+function test() {
+    console.log("TEST");
+}
 function error_img () {
   setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 100);
 }

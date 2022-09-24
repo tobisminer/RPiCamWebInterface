@@ -301,7 +301,7 @@
          <div><img id="mjpeg_dest" <?php echo getLoadClass() . getImgWidth();?>
 		 <?php if(file_exists("pipan_on")) echo "ontouchstart=\"pipan_start()\""; ?> onclick="toggle_fullscreen(this);" src="./loading.jpg"></div>
           <div id="main-buttons">
-            <input id="image_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?>>
+            <input id="image_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?> onclick="test()">
          </div>
       </div>
       <div class="container-fluid text-center">
