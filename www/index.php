@@ -301,22 +301,9 @@
          <div><img id="mjpeg_dest" <?php echo getLoadClass() . getImgWidth();?>
 		 <?php if(file_exists("pipan_on")) echo "ontouchstart=\"pipan_start()\""; ?> onclick="toggle_fullscreen(this);" src="./loading.jpg"></div>
          <div id="main-buttons">
-            <input id="video_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?>>
             <input id="image_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?>>
-            <input id="timelapse_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?>>
-            <input id="md_button" type="button" class="btn btn-primary" <?php getdisplayStyle('settings', $userLevel); ?>>
-            <input id="halt_button" type="button" class="btn btn-danger" <?php getdisplayStyle('settings', $userLevel); ?>>
          </div>
       </div>
-      <div id="secondary-buttons" class="container-fluid text-center">
-         <?php pan_controls(); ?>
-         <?php user_buttons(); ?>
-         <a href="preview.php" class="btn btn-default" <?php getdisplayStyle('preview', $userLevel); ?>>Download Videos and Images</a>
-         &nbsp;&nbsp;
-         <?php  if($config['motion_external'] == '1'): ?><a href="motion.php" class="btn btn-default" <?php getdisplayStyle('settings', $userLevel); ?>>Edit motion settings</a>&nbsp;&nbsp;<?php endif; ?>
-         <a href="schedule.php" class="btn btn-default" <?php getdisplayStyle('settings', $userLevel); ?>>Edit schedule settings</a>
-      </div>
-    
       <div class="container-fluid text-center">
          <div class="panel-group" id="accordion" <?php getdisplayStyle('settings', $userLevel); ?> >
             <div class="panel panel-default">
@@ -538,112 +525,6 @@
                            <td><select onchange="send_cmd('hp ' + this.value)"><?php makeOptions($options_hp, 'hdmi_preview'); ?></select></td>
                         </tr>
                      </table>
-                  </div>
-               </div>
-            </div>
-            <div class="panel panel-default" <?php  if($config['motion_external'] == '1') echo "style ='display:none;'"; ?>>
-               <div class="panel-heading">
-                  <h2 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Motion Settings</a>
-                  </h2>
-               </div>
-               <div id="collapseTwo" class="panel-collapse collapse">
-                  <div class="panel-body">
-                     <table class="settingsTable">
-                        <tr>
-                          <td>Motion Vector Preview:</td>
-                          <td>
-                            <select onchange="send_cmd('vp ' + this.value);setTimeout(function(){location.reload(true);}, 1000);" id="preview_select"><?php makeOptions($options_vp, 'vector_preview'); ?></select>
-                          </td>
-                        </tr>
-                        <tr>
-                           <td>Noise level (1-255 / >1000):</td>
-                           <td>
-                              <?php makeInput('motion_noise', 5, null, 'number'); ?><input type="button" value="OK" onclick="send_cmd('mn ' + document.getElementById('motion_noise').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Threshold (1-32000):</td>
-                           <td>
-                              <?php makeInput('motion_threshold', 5, null, 'number'); ?><input type="button" value="OK" onclick="send_cmd('mt ' + document.getElementById('motion_threshold').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Clipping factor (2-50), default 3:</td>
-                           <td>
-                              <?php makeInput('motion_clip', 5, null, 'number'); ?><input type="button" value="OK" onclick="send_cmd('mc ' + document.getElementById('motion_clip').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Mask Image:</td>
-                           <td>
-                              <?php makeInput('motion_image', 30); ?><input type="button" value="OK" onclick="send_cmd('mi ' + document.getElementById('motion_image').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Delay Frames to detect:</td>
-                           <td>
-                              <?php makeInput('motion_initframes', 5, null, 'number'); ?><input type="button" value="OK" onclick="send_cmd('ms ' + document.getElementById('motion_initframes').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Change Frames to start:</td>
-                           <td>
-                              <?php makeInput('motion_startframes', 5, null, 'number'); ?><input type="button" value="OK" onclick="send_cmd('mb ' + document.getElementById('motion_startframes').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Still Frames to stop:</td>
-                           <td>
-                              <?php makeInput('motion_stopframes', 5, null, 'number'); ?><input type="button" value="OK" onclick="send_cmd('me ' + document.getElementById('motion_stopframes').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Save vectors to .dat:<br>(Uses more space)</td>
-                           <td><select onchange="send_cmd('mf ' + this.value);"><?php makeOptions($options_mf, 'motion_file'); ?></select></td>
-                        </tr>
-                     </table>
-                  </div>
-               </div>
-            </div>
-            <div class="panel panel-default">
-               <div class="panel-heading">
-                  <h2 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">System</a>
-                  </h2>
-               </div>
-               <div id="collapseThree" class="panel-collapse collapse">
-                  <div class="panel-body">
-                     <input id="toggle_stream" type="button" class="btn btn-primary" value="<?php echo $streamButton; ?>" onclick="set_stream_mode(this.value);">
-                     <input id="allow_simple" type="button" class="btn btn-primary" value="<?php echo $allowSimple; ?>" onclick="set_display(this.value);">
-                     <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
-                     <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
-                     <input id="reset_button" type="button" value="reset settings" onclick="if(confirm('Are you sure to reset the settings to the default values?')) {send_cmd('rs 1');setTimeout(function(){location.reload(true);}, 1000);}" class="btn btn-danger">
-                     <form action='<?php echo ROOT_PHP; ?>' method='POST'>
-                        <br>Style
-                        <select name='extrastyle' id='extrastyle'>
-                           <?php getExtraStyles(); ?>
-                        </select>
-                        &nbsp;<button type="submit" name="OK" value="OK" >OK</button>
-                     </form>
-					 Set Date/Time <input type='text' size=20 id='timestr' value='13 FEB 2018 12:00:00'><input type="button" value="OK" onclick="sys_settime();"<BR>
-					 <table class="settingsTable">
-						<?php macroUpdates(); ?>
-					 </table>
-                  </div>
-               </div>
-            </div>
-            <div class="panel panel-default">
-               <div class="panel-heading">
-                  <h2 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Help</a>
-                  </h2>
-               </div>
-               <div id="collapseFour" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    Github: <a href="https://github.com/silvanmelchior/RPi_Cam_Web_Interface" target="_blank">https://github.com/silvanmelchior/RPi_Cam_Web_Interface</a><br>
-                    Forum: <a href="http://www.raspberrypi.org/forums/viewtopic.php?f=43&t=63276" target="_blank">http://www.raspberrypi.org/forums/viewtopic.php?f=43&t=63276</a><br>
-                    Wiki: <a href="http://elinux.org/RPi-Cam-Web-Interface" target="_blank">http://elinux.org/RPi-Cam-Web-Interface</a>
                   </div>
                </div>
             </div>
