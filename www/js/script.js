@@ -207,9 +207,6 @@ function reload_img () {
   if(!halted) mjpeg_img.src = "cam_pic.php?time=" + new Date().getTime() + "&pDelay=" + preview_delay;
   else setTimeout("reload_img()", 500);
 }
-function test() {
-    console.log("TEST");
-}
 function error_img () {
   setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 100);
 }
@@ -255,8 +252,8 @@ else {
 function setButtonState(btn_id, disabled, value, cmd=null) {
   btn = document.getElementById(btn_id);
   btn.disabled = disabled;
-  btn.value = value;
-  if (cmd !== null) btn.onclick = function() {send_cmd(cmd);};
+    btn.value = value;
+    if (cmd !== null) btn.onclick = function () { send_cmd(cmd); console.log("testttttt") };
 }
 
 ajax_status.onreadystatechange = function() {
