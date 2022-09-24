@@ -300,8 +300,12 @@
       <div class="container-fluid text-center liveimage">
          <div><img id="mjpeg_dest" <?php echo getLoadClass() . getImgWidth();?>
 		 <?php if(file_exists("pipan_on")) echo "ontouchstart=\"pipan_start()\""; ?> onclick="toggle_fullscreen(this);" src="./loading.jpg"></div>
-         <div id="main-buttons">
+          <div id="main-buttons">
+            <input id="video_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?>>
             <input id="image_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?>>
+            <input id="timelapse_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?>>
+            <input id="md_button" type="button" class="btn btn-primary" <?php getdisplayStyle('settings', $userLevel); ?>>
+            <input id="halt_button" type="button" class="btn btn-danger" <?php getdisplayStyle('settings', $userLevel); ?>>
          </div>
       </div>
       <div class="container-fluid text-center">
@@ -323,14 +327,6 @@
                            </td>
                         </tr>
                         <?php endif; ?>
-                        <tr>
-                           <td>Timelapse-Interval (0.1...3200):</td>
-                           <td><?php makeInput('tl_interval', 4, null, 'number'); ?>s <input type="button" value="OK" onclick="send_cmd('tv ' + 10 * document.getElementById('tl_interval').value)"></td>
-                        </tr>
-                        <tr>
-                           <td>Video Split (seconds, default 0=off):</td>
-                           <td><?php makeInput('video_split', 6, null, 'number'); ?>s <input type="button" value="OK" onclick="send_cmd('vi ' + document.getElementById('video_split').value)"></td>
-                        </tr>
                         <tr>
                            <td>Annotation (max 127 characters):</td>
                            <td>
