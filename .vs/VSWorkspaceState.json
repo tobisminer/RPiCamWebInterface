@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\etc\\nginx",
+    "\\etc\\nginx\\sites-available",
+    "\\www",
+    "\\www\\css"
   ],
-  "SelectedNode": "\\C:\\Users\\Tobis\\Source\\Repos\\RPiCamWebInterface",
+  "SelectedNode": "\\www\\css\\es_Default.css",
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
    define('BASE_DIR', dirname(__FILE__));
+   header('Cache-Control: no-cache, no-store, must-revalidate');
+   header('Pragma: no-cache');
+   header('Expires: 0');
    require_once(BASE_DIR.'/config.php');
    $config = array();
    $debugString = "";
@@ -287,7 +290,6 @@
       <script src="js/style_minified.js"></script>
       <script src="js/script.js"></script>
       <script src="js/pipan.js"></script>
-	  <script>imageZoom("sourceImage", "resultImage");</script>
    </head>
    <body onload="setTimeout('init(<?php echo "$mjpegmode, $video_fps, $divider" ?>);', 100);">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" <?php getdisplayStyle('navbar', $userLevel); ?>>
@@ -508,5 +510,6 @@
          </div>
       </div>
       <?php if ($debugString != "") echo "$debugString<br>"; ?>
+	  <script>imageZoom("sourceImage", "resultImage");</script>
    </body>
 </html>
