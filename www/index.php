@@ -510,6 +510,6 @@
          </div>
       </div>
       <?php if ($debugString != "") echo "$debugString<br>"; ?>
-	  <script>imageZoom("sourceImage", "resultImage");</script>
+	  <script src="js/lens.js"></script>
    </body>
 </html>
