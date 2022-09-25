@@ -2,7 +2,8 @@
 #img-container {
     z-index: 1;
     position: relative;
-    margin: 0 0 0 0;
+    display: flex;
+    justify-content: left;
 }
 
 #lens {
