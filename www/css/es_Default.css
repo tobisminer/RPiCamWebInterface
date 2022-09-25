@@ -1,7 +1,7 @@
 /*! default extra styles no changes */
 #img-container {
     z-index: 1;
-    max-width: 500px;
+    max-width: 80%;
     position: relative;
 }
 

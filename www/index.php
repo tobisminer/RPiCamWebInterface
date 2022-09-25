@@ -308,7 +308,7 @@
          </div>
 		<div id="img-container">
 				<div id="lens"></div>
-				<img id="featured" src="./media/image.jpg">
+				<img id="featured" src="./media/image.jpg" style="width: 80%">
 		</div>		
       </div>
       <div class="container-fluid text-center">
