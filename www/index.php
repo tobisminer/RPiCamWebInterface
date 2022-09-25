@@ -288,7 +288,6 @@
       <link rel="stylesheet" href="css/style_minified.css" />
       <link rel="stylesheet" href="<?php echo getStyle(); ?>" />
       <script src="js/style_minified.js"></script>
-      <script src="js/script.js"></script>
       <script src="js/pipan.js"></script>
    </head>
    <body onload="setTimeout('init(<?php echo "$mjpegmode, $video_fps, $divider" ?>);', 100);">
@@ -308,9 +307,10 @@
          </div>
 		<div id="img-container">
 				<div id="lens"></div>
-				<img id="featured" src="./media/image.jpg" style="width: 80%">
+				<img id="featured" src="./media/image.jpg" style="width: 100%">
 		</div>		
       </div>
+	  <br><br><br><br>
       <div class="container-fluid text-center">
          <div class="panel-group" id="accordion" <?php getdisplayStyle('settings', $userLevel); ?> >
             <div class="panel panel-default">
@@ -510,7 +510,7 @@
          </div>
       </div>
       <?php if ($debugString != "") echo "$debugString<br>"; ?>
-	  <br><br>
+	  <script src="js/script.js"></script>
 	  <script src="js/lens.js"></script>
    </body>
 </html>
