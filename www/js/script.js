@@ -253,8 +253,9 @@ function setButtonState(btn_id, disabled, value, cmd=null) {
   btn = document.getElementById(btn_id);
   btn.disabled = disabled;
     btn.value = value;
-    if (cmd !== null) btn.onclick = function () { send_cmd(cmd);
-        document.getElementById("sourceImage").src = "./media/image.jpg?time=" + new Date();
+    if (cmd !== null) btn.onclick = function () {
+        send_cmd(cmd);
+        document.getElementById("featured").src = "./media/image.jpg?time=" + new Date().getTime();
     };
 }
 
