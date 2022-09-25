@@ -1,11 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
+    "\\etc",
     "\\etc\\nginx",
     "\\etc\\nginx\\sites-available",
+    "\\etc\\raspimjpeg",
     "\\www",
     "\\www\\css"
   ],
-  "SelectedNode": "\\www\\css\\es_Default.css",
+  "SelectedNode": "\\www\\js",
   "PreviewInSolutionExplorer": false
 }

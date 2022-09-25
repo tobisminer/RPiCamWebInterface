@@ -1,18 +1,16 @@
 /*! default extra styles no changes */
-.img-zoom-container {
+#img-container {
+    z-index: 1;
+    max-width: 500px;
     position: relative;
 }
-.img-zoom-lens {
-    position: absolute;
-    border: 1px solid #d4d4d4;
-    /*set the size of the lens:*/
-    width: 40px;
-    height: 40px;
-}
 
-.img-zoom-result {
-    border: 1px solid #d4d4d4;
-    /*set the size of the result div:*/
-    width: 600px;
-    height: 600px;
+#lens {
+    z-index: 2;
+    position: absolute;
+    height: 125px;
+    width: 125px;
+    border: 2px solid black;
+    background-repeat: no-repeat;
+    cursor: none;
 }

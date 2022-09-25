@@ -306,10 +306,10 @@
           <div id="main-buttons">
             <input id="image_button" type="button" class="btn btn-primary" <?php getdisplayStyle('actions', $userLevel); ?> onclick="test()">
          </div>
-		<div class="img-zoom-container">
-		    <img id="sourceImage" src="./media/image.jpg" width=80%>
-		    <div id="resultImage" class="img-zoom-result"></div>
-        </div>		
+		<div id="img-container">
+				<div id="lens"></div>
+				<img id="featured" src="./media/image.jpg">
+		</div>		
       </div>
       <div class="container-fluid text-center">
          <div class="panel-group" id="accordion" <?php getdisplayStyle('settings', $userLevel); ?> >
