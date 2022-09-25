@@ -255,10 +255,12 @@ function setButtonState(btn_id, disabled, value, cmd=null) {
     btn.value = value;
     if (cmd !== null) btn.onclick = function () {
         send_cmd(cmd);
-        document.getElementById("featured").src = "./media/image.jpg?time=" + new Date().getTime();
+        setTimeout(refreshBtnImage, 1500);
     };
 }
-
+function refreshBtnImage() {
+    document.getElementById("featured").src = "./media/image.jpg?time=" + new Date().getTime()
+}
 ajax_status.onreadystatechange = function() {
   if(ajax_status.readyState == 4 && ajax_status.status == 200) {
 
