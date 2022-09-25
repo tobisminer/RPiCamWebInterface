@@ -19,25 +19,10 @@ function imageZoom(imgID) {
     img.addEventListener("touchmove", moveLens);
 
     function moveLens() {
-        /*
-        Function sets sets position of lens over image and background image of lens
-        1 - Get cursor position
-        2 - Set top and left position using cursor position - lens width & height / 2
-        3 - Set lens top/left positions based on cursor results
-        4 - Set lens background position & invert
-        5 - Set lens bounds
-    
-        */
-
-        //1
         var pos = getCursor();
-        //console.log('pos:', pos)
-
-        //2
+        
         var positionLeft = pos.x - (lens.offsetWidth / 2);
         var positionTop = pos.y - (lens.offsetHeight / 2);
-
-        //5
         if (positionLeft < 0) {
             positionLeft = 0;
         }
@@ -55,11 +40,9 @@ function imageZoom(imgID) {
         }
 
 
-        //3
         lens.style.left = positionLeft + 'px';
         lens.style.top = positionTop + 'px';
 
-        //4
         lens.style.backgroundPosition = "-" + (pos.x * ratio) + 'px -' + (pos.y * ratio) + 'px';
     }
 

@@ -510,6 +510,7 @@
          </div>
       </div>
       <?php if ($debugString != "") echo "$debugString<br>"; ?>
+	  <br><br>
 	  <script src="js/lens.js"></script>
    </body>
 </html>
