@@ -291,13 +291,6 @@
       <script src="js/pipan.js"></script>
    </head>
    <body onload="setTimeout('init(<?php echo "$mjpegmode, $video_fps, $divider" ?>);', 100);">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" <?php getdisplayStyle('navbar', $userLevel); ?>>
-         <div class="container">
-            <div class="navbar-header">
-               <a class="navbar-brand" href="#"><?php echo CAM_STRING; ?></a>
-            </div>
-         </div>
-      </div>
 	  <?php simple_button(); ?>
       <div class="container-fluid text-center liveimage">
          <div><img id="mjpeg_dest" <?php echo getLoadClass() . getImgWidth();?>

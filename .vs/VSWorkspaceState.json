@@ -1,14 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\bin",
-    "\\etc",
     "\\etc\\nginx",
     "\\etc\\nginx\\sites-available",
     "\\etc\\raspimjpeg",
     "\\www",
-    "\\www\\css"
+    "\\www\\css",
+    "\\www\\js"
   ],
-  "SelectedNode": "\\www\\js",
+  "SelectedNode": "\\www\\js\\script.js",
   "PreviewInSolutionExplorer": false
 }
